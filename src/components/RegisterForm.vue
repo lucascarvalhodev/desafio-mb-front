@@ -32,19 +32,20 @@
   }
 
   function onComplete() {
-    axios.post('http://127.0.0.1:3000', state.data).then(res => {
-      console.log(res)
+    axios.post('http://127.0.0.1:3000/registration', state.data).then(res => {
       Swal.fire({
         icon: 'success',
-        title: 'Your work has been saved',
+        title: res.data.message,
         showConfirmButton: false,
         timer: 1500
       })
+
+      state.data = {}
+      state.currentStep = 1
     }).catch(err => {
-      console.log(err)
       Swal.fire({
         icon: 'error',
-        title: 'Your work has been saved',
+        title: err.data.message,
         showConfirmButton: false,
         timer: 1500
       })
