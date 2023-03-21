@@ -33,9 +33,9 @@
     async function next() {
       let schema = object({
         corporateName: string().required(),
-        document: string().required(),
+        document: string().required().min(14).max(14),
         openingDate: date().required(),
-        phoneNumber: string().required()
+        phoneNumber: string().required().min(10).max(11)
       });
 
       try {

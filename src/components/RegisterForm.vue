@@ -45,7 +45,7 @@
     }).catch(err => {
       Swal.fire({
         icon: 'error',
-        title: err.data.message,
+        title: err.response.data.message,
         showConfirmButton: false,
         timer: 1500
       })
